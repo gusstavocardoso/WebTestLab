@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Web Test Lab</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Web Test Lab</h1>
+
+        <!-- Seção de Login -->
+        <section id="login" class="section">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Usuário">
+                <input type="password" id="password" placeholder="Senha">
+                
+                <!-- Checkbox para Lembrar o Usuário -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Lembrar-me</label>
+                </div>
+
+                <button type="submit">Entrar</button>
+                <p id="loginMessage"></p> <!-- Mensagem de validação de login -->
+            </form>
+        </section>
+
+        <!-- Seção de Produtos -->
+        <section id="produtos" class="section" style="display:none;">
+            <h2>Produtos</h2>
+            <div class="card">
+                <h3>Produto 1</h3>
+                <p>Descrição: Produto de alta qualidade</p>
+                <p>Preço: R$ 100,00</p>
+                <div class="card-controls">
+                    <input type="number" id="quantity1" min="1" value="1">
+                    <button onclick="addToCart('Produto 1', 100)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Produto 2</h3>
+                <p>Descrição: Produto com ótimo custo-benefício</p>
+                <p>Preço: R$ 50,00</p>
+                <div class="card-controls">
+                    <input type="number" id="quantity2" min="1" value="1">
+                    <button onclick="addToCart('Produto 2', 50)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Endereço -->
+        <section id="endereco" class="section" style="display:none;">
+            <h2>Endereço</h2>
+            <form id="addressForm">
+                <input type="text" id="street" placeholder="Rua">
+                <input type="text" id="city" placeholder="Cidade">
+
+                <div class="dropdown-group">
+                    <label for="state">Estado:</label>
+                    <select id="state" name="state">
+                        <option value="" disabled selected>Selecione o estado</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="BA">Bahia</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                    </select>
+                </div>
+
+                <button type="submit">Salvar Endereço</button>
+                <p id="addressMessage"></p> <!-- Parágrafo para mensagens de validação -->
+            </form>
+        </section>
+
+        <!-- Seção de Resumo do Pedido -->
+        <section id="resumo" class="section" style="display:none;">
+            <h2>Resumo do Pedido</h2>
+            <!-- Radio button para Método de Pagamento -->
+            <div class="radio-group">
+                <p>Método de Pagamento:</p>
+                <input type="radio" id="cartao" name="paymentMethod" value="cartao" required>
+                <label for="cartao">Pix</label>
+                <input type="radio" id="boleto" name="paymentMethod" value="boleto" required>
+                <label for="boleto">Boleto</label>
+            </div>
+            <div id="cartItems">
+                <!-- Produtos no carrinho serão adicionados dinamicamente aqui -->
+            </div>
+            <p id="totalAmount"></p> <!-- Total do pedido -->
+            <button id="finalizeOrder">Finalizar Pedido</button>
+            <p id="orderMessage"></p> <!-- Mensagem de validação de finalização do pedido -->
+        </section>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
